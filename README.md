@@ -19,9 +19,7 @@ An HTML layout inspired by the landing page of Trackgenix, based on the Figma pr
 - Clone the repo.
 
 ```
-
 git clone https://github.com/GuidoCerioni/BaSP-M2022-Etapa-1
-
 ```
 
 - Go to the repo folder in file explorer.
