@@ -1,0 +1,96 @@
+/**/
+/**/
+/**/
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;
+  margin: 0 0 0 308px;
+  color: #373867;
+}
+h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #373867;
+  display: inline;
+}
+h3 {
+  font-size: 18px;
+  font-weight: regular;
+  color: #373867;
+  display: inline;
+}
+a {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+  color: #373867;
+}
+/**/
+/* General */
+.inline {
+  display: inline;
+}
+.green {
+  background-color: #aace9b;
+}
+.grey {
+  background-color: #c4c4c4;
+}
+
+/* General */
+/**/
+/* Header */
+header {
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+.social-media-icons {
+  display: inline;
+}
+/* Header */
+/**/
+/* Sidebar */
+aside {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 308px;
+  padding: 18px;
+}
+nav {
+  margin-bottom: 20px;
+}
+aside .title-line {
+  width: fit-content;
+  margin-bottom: 16px;
+}
+aside .short-line {
+  margin-top: 10px;
+  height: 4px;
+  width: 100%;
+}
+aside .menu {
+  margin-bottom: 46px;
+}
+aside .menu li {
+  position: relative;
+}
+aside .menu a {
+  display: block;
+  padding: 32px 0 18px 0;
+}
+aside .menu a:hover {
+  background-color: #f1f1f1;
+}
+aside .long-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+}
+
+/* Sidebar */
+/**/
