@@ -4,7 +4,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
-  /*margin: 0 0 0 308px;*/
+  /*
+  margin: 0 0 0 308px;*/
   color: #373867;
 }
 h2 {
@@ -44,10 +45,18 @@ main {
 /* General */
 /**/
 /* Header */
+header {
+  box-sizing: border-box;
+  height: 137px;
+  position: relative;
+  padding: 75px 0 0 0;
+  margin-bottom: 20px;
+}
 .menu-button {
   display: inline-block;
   width: 30px;
   height: 18px;
+  cursor: pointer;
 }
 .button-line {
   width: 100%;
@@ -56,20 +65,38 @@ main {
   margin-bottom: 5px;
   border-radius: 2px;
 }
-header {
-  box-sizing: border-box;
-  height: 137px;
-  position: relative;
-  padding: 20px 0;
-  margin-bottom: 20px;
+header h2 {
+  margin-left: 35px;
+  font-size: 40px;
+  font-weight: bold;
 }
 header ul {
   display: inline-block;
   position: absolute;
   right: 0;
+  bottom: 22px;
 }
 .social-media-icons {
   display: inline-block;
+  margin-left: 21px;
+}
+.social-media-icons a {
+  display: inline-block;
+}
+.social-media-icons img {
+  height: 28px;
+  width: 28px;
+}
+#twitter-img-container {
+}
+#twitter-img {
+  height: 24px;
+}
+header .line {
+  height: 6px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 /* Header */
 /**/
