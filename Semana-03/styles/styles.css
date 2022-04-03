@@ -4,7 +4,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
-  margin: 0 0 0 308px;
+
+  /*margin: 0 0 0 308px;*/
   color: #373867;
 }
 h2 {
@@ -41,12 +42,32 @@ a:visited {
 /* General */
 /**/
 /* Header */
+.menu-button {
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+}
+.button-line {
+  width: 100%;
+  height: 2.5px;
+  background-color: #373867;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
 header {
-  padding: 20px 10px;
+  box-sizing: border-box;
+  height: 137px;
+  position: relative;
+  padding: 20px 0;
   margin-bottom: 20px;
 }
+header ul {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
 .social-media-icons {
-  display: inline;
+  display: inline-block;
 }
 /* Header */
 /**/
@@ -58,6 +79,10 @@ aside {
   left: 0px;
   width: 308px;
   padding: 18px;
+  background-color: #ffffff;
+  /**/
+  display: none;
+  /**/
 }
 nav {
   margin-bottom: 20px;
