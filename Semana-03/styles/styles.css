@@ -2,8 +2,7 @@
 /**/
 /**/
 body {
-  /* margin: 0 0 0 308px;
-  */
+  margin: 0 0 0 308px;
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
   color: #373867;
@@ -28,6 +27,11 @@ h3 {
 h4 {
   display: inline-block;
   font-weight: regular;
+  color: #373867;
+}
+h5 {
+  display: inline-block;
+  font-weight: bold;
   color: #373867;
 }
 p {
@@ -57,11 +61,70 @@ main {
 }
 
 /* General */
+
 /**/
+
+/*Features*/
+.features {
+  height: 369px;
+  padding: 45px 0;
+}
+.features h3 {
+  font-size: 20px;
+}
+.features li {
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  height: 141px;
+  width: 409px;
+  margin: 24px 140px 18px 0;
+}
+.features .img-container {
+  display: inline-block;
+  margin: 28px 0 0 28px;
+  width: 94.19px;
+  height: 94.19px;
+  overflow: hidden;
+  border: 1px solid #373867;
+  transform: rotate(45deg);
+}
+.features .img-container img {
+  position: relative;
+  top: -20px;
+  left: -20px;
+  width: 141%;
+  height: 141%;
+  transform: rotate(-45deg);
+}
+.features .text {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  margin: 0 0 0 46px;
+  padding: 24px 0 0 0;
+  width: 249px;
+  height: 100%;
+}
+.features h5 {
+  margin: 0 0 24px 0;
+  font-size: 14px;
+}
+.features p {
+  font-size: 12px;
+}
+/*Features*/
+
+/**/
+
 /* MAIN */
 .border-bottom-gray {
   border-bottom: 2px solid #c4c4c4;
 }
+/* MAIN */
+
+/**/
+
 /* Description */
 .description {
   height: 404px;
@@ -101,8 +164,9 @@ main {
   float: right;
 }
 /* Description */
-/* MAIN */
+
 /**/
+
 /* Header */
 header {
   box-sizing: border-box;
@@ -158,7 +222,9 @@ header .line {
   bottom: 0;
 }
 /* Header */
+
 /**/
+
 /* Sidebar */
 aside {
   box-sizing: border-box;
@@ -168,9 +234,7 @@ aside {
   width: 308px;
   padding: 18px;
   background-color: #ffffff;
-  /**/
-  display: none;
-  /**/
+  /*display: none;*/
 }
 aside h2 {
   font-size: 32px;
