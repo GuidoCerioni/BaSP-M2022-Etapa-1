@@ -58,9 +58,6 @@ main {
 .green {
   background-color: #aace9b;
 }
-.grey {
-  background-color: #c4c4c4;
-}
 
 /* General */
 
@@ -444,6 +441,7 @@ aside .menu {
 }
 aside .menu li {
   position: relative;
+  border-bottom: 1px solid #c4c4c4;
 }
 aside .menu a {
   display: block;
@@ -451,6 +449,9 @@ aside .menu a {
   width: 290px;
   position: relative;
   left: -18px;
+}
+aside a {
+  color: #373867;
 }
 aside a:hover {
   background-color: #f1f1f1;
