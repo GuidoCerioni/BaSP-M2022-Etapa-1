@@ -66,6 +66,62 @@ main {
 
 /**/
 
+/* Contact */
+.contact {
+  padding: 42px 0;
+}
+.contact h3 {
+  font-size: 20px;
+}
+.contact input,
+select,
+textarea {
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #373867;
+  border-radius: 4px;
+}
+.contact input[type='text'],
+[type='email'],
+select {
+  width: 508px;
+  height: 37px;
+}
+.contact input[type='text'] {
+  margin: 30px 30px 35px 0;
+}
+.contact option {
+  width: 537px;
+}
+.contact textarea {
+  width: 100%;
+  margin: 35px 0;
+  font-family: inherit;
+}
+.contact button {
+  width: 160px;
+  height: 47px;
+  background-color: #aace9b;
+  color: #373867;
+  border: 0px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.contact button:hover {
+  background-color: #373867;
+  color: #aace9b;
+}
+.contact button[type='reset'] {
+  margin: 0 0 0 30px;
+}
+
+/* Contact */
+
+/**/
+
 /* Why choose us */
 .choose {
   padding: 42px 0 18px 0;
