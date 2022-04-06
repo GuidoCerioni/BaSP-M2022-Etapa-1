@@ -26,6 +26,14 @@ git clone https://github.com/GuidoCerioni/BaSP-M2022-Etapa-1
 
 - Open /Semana-02/index.html file with Chrome.
 
+### Semana 02
+
+Create HTML layout based on Figma prototype.
+
+### Semana 03
+
+Add Css to the HTML layout without Flexbox.
+
 ## Author
 
 Guido Cerioni
