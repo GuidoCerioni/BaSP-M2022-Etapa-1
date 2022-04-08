@@ -1,14 +1,12 @@
 /**/
 body {
-  margin: 0 0 0 308px;
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
   color: #373867;
 }
 main {
-  box-sizing: border-box;
-  width: 1132px;
-  padding: 0 10px;
+  width: 90%;
+  margin: 0 auto;
 }
 h1 {
   display: inline-block;
@@ -53,4 +51,19 @@ a:visited {
 }
 .green {
   background-color: #aace9b;
+}
+/* Lines */
+.border-bottom-gray {
+  border-bottom: 2px solid #c4c4c4;
+}
+.border-bottom-green {
+  border-bottom: 6px solid #aace9b;
+}
+
+.social-media-icons {
+  display: inline-block;
+}
+.social-media-icons img {
+  height: 28px;
+  width: 28px;
 }
