@@ -1,12 +1,11 @@
 /**/
 body {
+  margin: 0 20px;
   font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
   color: #373867;
 }
 main {
-  width: 90%;
-  margin: 0 auto;
 }
 h1 {
   display: inline-block;
@@ -52,18 +51,28 @@ a:visited {
 .green {
   background-color: #aace9b;
 }
-/* Lines */
+.social-media-icons {
+  display: inline-block;
+}
+.social-media-icons,
+.social-media-icons a,
+.social-media-icons img {
+  height: 28px;
+  width: 28px;
+}
+.social-media-icons img.twitter-img {
+  height: 24px;
+}
+.social-media-icons.twitter-container a {
+  height: 24px;
+}
+li.twitter-container {
+  display: flex;
+  align-items: center;
+}
 .border-bottom-gray {
   border-bottom: 2px solid #c4c4c4;
 }
 .border-bottom-green {
   border-bottom: 6px solid #aace9b;
-}
-
-.social-media-icons {
-  display: inline-block;
-}
-.social-media-icons img {
-  height: 28px;
-  width: 28px;
 }

@@ -1,18 +1,22 @@
 header {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  flex-direction: column;
-  position: relative;
+  justify-content: space-between;
   padding: 40px 0 34px 0;
   margin-bottom: 20px;
 }
+header .container-title {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+/* hamburger button */
 .menu-button {
   display: inline-block;
   width: 30px;
-  height: 18px;
-  position: absolute;
-  left: 0;
-  top: 50px;
+  height: 21px;
   cursor: pointer;
 }
 .button-line {
@@ -22,25 +26,19 @@ header {
   margin-bottom: 6px;
   border-radius: 2px;
 }
+.button-line:last-child {
+  margin-bottom: 0;
+}
+/* hamburger button */
 header h2 {
+  width: 300px;
+  margin: 0 0 0 67px;
   font-size: 40px;
   font-weight: bold;
 }
 header ul {
-  width: 60%;
+  min-width: 200px;
   display: flex;
   justify-content: space-between;
-  margin-top: 32px;
-}
-header .social-media-icons {
-}
-header .social-media-icons a {
-  display: inline-block;
-}
-.twitter-container {
-  display: flex;
-  align-items: center;
-}
-.twitter-img {
-  height: 24px;
+  margin: 0 auto;
 }
