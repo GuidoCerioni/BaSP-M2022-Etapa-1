@@ -31,10 +31,8 @@ header .container-title {
 }
 /* hamburger button */
 header h2 {
-  width: 300px;
-  margin: 0 0 0 67px;
+  margin: 0 0 0 47px;
   font-size: 40px;
-  font-weight: bold;
 }
 header ul {
   min-width: 200px;
