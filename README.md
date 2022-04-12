@@ -1,8 +1,8 @@
 # BaSP-M2022-Etapa-1
 
-An HTML layout inspired by the landing page of Trackgenix, based on the Figma prototype .
+See [Live demo.](https://guidocerioni.github.io/BaSP-M2022-Etapa-1/Semana-04/index.html)
 
-See [Live demo](https://guidocerioni.github.io/BaSP-M2022-Etapa-1/Semana-04/index.html)
+An HTML layout inspired by the landing page of Trackgenix, based on a Figma prototype.
 
 ## Getting Started
 
@@ -26,7 +26,7 @@ git clone https://github.com/GuidoCerioni/BaSP-M2022-Etapa-1
 
 - Go to the repo folder in file explorer.
 
-- Open /Semana-02/index.html file with Chrome.
+- Open /Semana-XX/index.html file with Chrome. (XX is the week number, i.e. 02)
 
 ## Change Log
 
