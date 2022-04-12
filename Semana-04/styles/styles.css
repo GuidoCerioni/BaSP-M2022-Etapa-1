@@ -8,29 +8,24 @@ body {
 main {
 }
 h1 {
-  display: inline-block;
   font-size: 48px;
   font-weight: bold;
   color: #373867;
 }
 h2 {
-  display: inline-block;
   font-weight: bold;
   color: #373867;
 }
 h3 {
-  display: inline-block;
   font-size: 18px;
   font-weight: normal;
   color: #373867;
 }
 h4 {
-  display: inline-block;
   font-weight: normal;
   color: #373867;
 }
 h5 {
-  display: inline-block;
   font-weight: bold;
   color: #373867;
 }
