@@ -40,3 +40,8 @@ header ul {
   justify-content: space-between;
   margin: 0 auto;
 }
+@media only screen and (min-width: 768px) {
+  header ul {
+    margin: 0;
+  }
+}
