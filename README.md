@@ -1,6 +1,6 @@
 # BaSP-M2022-Etapa-1
 
-See [Live demo.](https://guidocerioni.github.io/BaSP-M2022-Etapa-1/Semana-05/index.html)
+See [Live demo.](https://guidocerioni.github.io/BaSP-M2022-Etapa-1/Semana-05)
 
 An HTML layout inspired by the landing page of Trackgenix, based on a Figma prototype.
 
