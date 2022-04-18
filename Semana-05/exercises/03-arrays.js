@@ -43,7 +43,8 @@ console.log(joined);
 /* g. Crear una copia del array de meses que contenga desde Mayo hasta Noviembre (utilizar slice). */
 
 console.log('- Exercise 3.g:');
-var mesesOrdered = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+var mesesOrdered =
+  ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-var sliced = mesesOrdered.slice(mesesOrdered.indexOf("Mayo"), mesesOrdered.indexOf("Noviembre")+1);
+var sliced = mesesOrdered.slice(mesesOrdered.indexOf("Mayo"), mesesOrdered.indexOf("Noviembre") + 1);
 console.table(sliced);
