@@ -1,6 +1,6 @@
 # BaSP-M2022-Etapa-1
 
-See [Live demo.](https://guidocerioni.github.io/BaSP-M2022-Etapa-1/Semana-04/index.html)
+See [Live demo.](https://guidocerioni.github.io/BaSP-M2022-Etapa-1/Semana-05/index.html)
 
 An HTML layout inspired by the landing page of Trackgenix, based on a Figma prototype.
 
@@ -14,7 +14,7 @@ An HTML layout inspired by the landing page of Trackgenix, based on a Figma prot
 
 - [Git](https://git-scm.com/downloads)
 
-- A command-line interface
+- Any CLI (cmd, Git Bash, Powershell)
 
 ### Executing program
 
@@ -30,6 +30,9 @@ git clone https://github.com/GuidoCerioni/BaSP-M2022-Etapa-1
 
 ## Change Log
 
+### Semana 05
+
+Add Javascript exercises.
 ### Semana 04
 
 Add styles to the HTML layout now using Flexbox.
