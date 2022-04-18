@@ -1,4 +1,5 @@
 console.log('-- EXERCISE 2: strings --');
+console.log('');
 
 /* a. Crear una variable de tipo string con al menos 10 caracteres y convertir todo
 el texto en mayúscula (utilizar toUpperCase). */
@@ -7,6 +8,7 @@ console.log('- Exercise 2.a:');
 var stringA = 'Holamundo hola mundo';
 var resultA = stringA.toUpperCase();
 console.log(resultA);
+console.log('');
 
 /* b. Crear una variable de tipo string con al menos 10 caracteres y generar un
 nuevo string con los primeros 5 caracteres guardando el resultado en una nueva
@@ -16,6 +18,7 @@ console.log('- Exercise 2.b:');
 var stringB = 'Holamundo hola mundo';
 var resultB = stringB.substring(0, 5);
 console.log(resultB);
+console.log('');
 
 /* c. Crear una variable de tipo string con al menos 10 caracteres y generar un
 nuevo string con los últimos 3 caracteres guardando el resultado en una nueva
@@ -25,6 +28,7 @@ console.log('- Exercise 2.c:');
 var stringC = 'Holamundo hola mundo';
 var resultC = stringC.substring(stringC.length - 3, stringC.length);
 console.log(resultC);
+console.log('');
 
 /* d. Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo
 string con la primera letra en mayúscula y las demás en minúscula. Guardar el
@@ -36,6 +40,7 @@ var stringD = 'holamundo hola mundo';
 var resultD =
   stringD.substring(0, 1).toUpperCase() + stringD.substring(1, stringD.length);
 console.log(resultD);
+console.log('');
 
 /* e. Crear una variable de tipo string con al menos 10 caracteres y algún espacio
 en blanco. Encontrar la posición del primer espacio en blanco y guardarla en una
@@ -45,6 +50,7 @@ console.log('- Exercise 2.e:');
 var stringE = 'holamundo hola mundo';
 var resultE = stringE.indexOf(' ');
 console.log(resultE);
+console.log('');
 
 /* f. Crear una variable de tipo string con al menos 2 palabras largas (10 caracteres
 y algún espacio entre medio). Utilizar los métodos de los ejercicios anteriores para
@@ -64,3 +70,5 @@ var resultF =
   stringF.substring(stringF.indexOf(' ') + 2, stringF.length);
 
 console.log(resultF);
+console.log('');
+console.log('');
