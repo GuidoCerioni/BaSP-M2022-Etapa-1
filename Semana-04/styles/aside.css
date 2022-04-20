@@ -7,28 +7,35 @@ aside {
   background-color: #ffffff;
   display: none;
 }
+
 aside h2 {
   font-size: 32px;
 }
+
 nav {
   margin-bottom: 20px;
 }
+
 aside .title-line {
   width: fit-content;
   margin-bottom: 16px;
 }
+
 aside .short-line {
   margin-top: 10px;
   height: 4px;
   width: 100%;
 }
+
 aside .menu {
   margin-bottom: 46px;
 }
+
 aside .menu li {
   position: relative;
   border-bottom: 1px solid #c4c4c4;
 }
+
 aside .menu a {
   display: block;
   padding: 32px 0 18px 18px;
@@ -36,12 +43,15 @@ aside .menu a {
   position: relative;
   left: -18px;
 }
+
 aside a {
   color: #373867;
 }
+
 aside a:hover {
   background-color: #f1f1f1;
 }
+
 aside .long-line {
   position: absolute;
   bottom: 0;
@@ -49,17 +59,21 @@ aside .long-line {
   height: 1px;
   width: 100%;
 }
+
 aside .get-in-touch p {
   margin-top: 34px;
   font-size: 12px;
   line-height: 19px;
 }
+
 aside .get-in-touch ul {
   margin: 24px 0;
 }
+
 aside .get-in-touch li {
   margin-bottom: 24px;
 }
+
 aside .get-in-touch a {
   display: block;
   height: 24px;
@@ -67,13 +81,14 @@ aside .get-in-touch a {
   line-height: 19px;
   padding: 6px 0;
 }
+
 aside .get-in-touch a img {
   width: 24px;
   height: 24px;
   margin: auto 26px auto 0;
-  filter: invert(83%) sepia(34%) saturate(277%) hue-rotate(57deg)
-    brightness(91%) contrast(84%);
+  filter: invert(83%) sepia(34%) saturate(277%) hue-rotate(57deg) brightness(91%) contrast(84%);
 }
+
 aside .get-in-touch a div {
   display: inline-block;
   position: relative;
