@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log in - Trackgenix</title>
+  <!-- Css reset file -->
+  <link rel="stylesheet" href="../styles/reset.css" />
+  <!-- Css styles -->
+  <link rel="stylesheet" href="../styles/login.css" />
 </head>
-<body>
-  
+
+<body class="login">
+  <header>
+    <h2>Trackgenix</h2>
+    <h1>Log in</h1>
+    <!-- <a href="sign-up.html">Sign up</a> -->
+  </header>
+  <main>
+    <section>
+      <h3>Log in</h3>
+      <form action="">
+        <div class="input-icon">
+          <img src="../assets/icon/icon-mail.svg" alt="">
+          <input type="text" name="email" id="email" placeholder="someone@gmail.com">
+        </div>
+        <div class="input-icon">
+          <img src="../assets/icon/icon-padlock.svg" alt="">
+          <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="input-checkbox">
+          <input type="checkbox" id="remember-me" name="remember-me">
+          <label for="remember-me">Remember me</label>
+        </div>
+      </form>
+      <button id="login-button">Log in</button>
+      <a class="sign-up-button" href="sign-up.html">Sign up</a>
+      <p>Forgot your password?</p>
+      <a class="reset-it-button" href="#">Reset it</a>
+
+    </section>
+    <script type="text/javascript" src="../js/login.js"></script>
+
 </body>
+
 </html>
