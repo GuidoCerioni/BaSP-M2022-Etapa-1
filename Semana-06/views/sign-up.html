@@ -1,12 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign up - Trackgenix</title>
+  <!-- Css reset file -->
+  <link rel="stylesheet" href="../styles/reset.css" />
+  <!-- Css styles -->
+  <link rel="stylesheet" href="../styles/sign-up.css" />
 </head>
-<body>
-  
+
+<body class="sign-up">
+  <header>
+    <h2>Trackgenix</h2>
+    <h1>Sign up</h1>
+    <!-- <a href="sign-up.html">Sign up</a> -->
+  </header>
+  <main>
+    <section>
+      <h3>Sign up</h3>
+      <form action="">
+        <div class="container">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" placeholder="Marco">
+
+          <label for="surname">Surname</label>
+          <input type="text" name="surname" id="surname" placeholder="Carola">
+
+          <label for="id">ID</label>
+          <input type="text" name="id" id="id" placeholder="someone@gmail.com">
+
+          <label for="phone">Phone Number</label>
+          <input type="text" name="phone" id="phone" placeholder="3415678901">
+
+          <label for="birth">Birthdate</label>
+          <input type="date" name="birth" id="birth">
+
+          <label for="address">Address </label>
+          <input type="text" name="address" id="Italia 550" placeholder="someone@gmail.com">
+        </div>
+        <div class="container">
+          <label for="city">City </label>
+          <input type="text" name="city" id="city" placeholder="Rosario">
+
+          <label for="zipcode">Zip Code </label>
+          <input type="text" name="zipcode" id="zipcode" placeholder="2000">
+
+          <label for="email">Email </label>
+          <input type="text" name="email" id="email" placeholder="someone@gmail.com">
+
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="Password">
+
+          <label>Repeat password</label>
+          <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="input-checkbox">
+          <input type="checkbox" id="remember-me" name="remember-me">
+          <label for="remember-me">Remember me</label>
+        </div>
+      </form>
+      <button id="button-login">Log in</button>
+      <a class="sign-up-button" href="sign-up.html">Sign up</a>
+      <p>Forgot your password?</p>
+      <a class="reset-it-button" href="#">Reset it</a>
+
+    </section>
+    <script type="text/javascript" src="../js/login.js"></script>
+
 </body>
+
 </html>
