@@ -1,26 +1,76 @@
 // Select elements
+// inputs
 let inputEmail = document.querySelector('#email');
 let inputPassword = document.querySelector('#password');
 let inputRememberMe = document.querySelector('#remember-me');
+// inputs icons
+let inputEmailIcon = document.querySelector('#email-icon');
+let inputPasswordIcon = document.querySelector('#password-icon');
+// button
+let buttonLogin = document.querySelector('#button-login');
+
 
 // Add events listeners
-inputEmail.addEventListener("blur", validateEmail(inputEmail.value));
-inputPassword.addEventListener("blur", validatePassword(inputPassword.value));
+inputEmail.addEventListener("blur", validateEmail);
+inputPassword.addEventListener("blur", validatePassword);
+inputEmail.addEventListener("focus", removeEmailError);
+inputPassword.addEventListener("focus", removePasswordError);
+buttonLogin.addEventListener("click", handleLogin);
+
 
 // Functions
-function validateEmail(email) {
-  if (email) {
-    console.log("email")
+function handleLogin(e) {
+  let email = inputEmail.value;
+  let password = inputPassword.value;
+  alert('email: ' + email + '\n' + 'password: ' + password);
+}
+
+function checkNumbersAndLetters(str) {
+  let hasNumber = false;
+  let hasLetter = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (parseFloat(str.charAt(i))) {
+      hasNumber = true;
+    }
+    if (!parseFloat(str.charAt(i))) {
+      hasLetter = true;
+    }
   }
-  else {
-    console.log("no email")
+  if (hasNumber && hasLetter) {
+    return true;
+  } else {
+    return false;
   }
 }
-function validatePassword(email) {
-  if (email) {
-    console.log("password")
+
+function validateEmail(e) {
+  let email = e.currentTarget.value;
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    console.log(email);
+  } else {
+    console.log(email);
+    inputEmail.classList.add('error');
+    inputEmailIcon.classList.add('error');
+  }
+}
+
+function validatePassword(e) {
+  let password = e.currentTarget.value;
+  if (checkNumbersAndLetters(password) && password.length > 5) {
+    console.log(password);
   }
   else {
-    console.log("no password")
+    inputPassword.classList.add('error');
+    inputPasswordIcon.classList.add('error');
   }
+}
+
+function removeEmailError(e) {
+  inputEmail.classList.remove('error');
+  inputEmailIcon.classList.remove('error');
+}
+
+function removePasswordError(e) {
+  inputPassword.classList.remove('error');
+  inputPasswordIcon.classList.remove('error');
 }

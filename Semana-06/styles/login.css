@@ -113,3 +113,13 @@
 .login p {
   margin-bottom: 5px;
 }
+
+/* Events clases */
+.login form input[type="text"].error,
+.login form input[type="password"].error {
+  border-bottom: 1px solid #ff0000;
+}
+
+.login form img.error {
+  filter: invert(17%) sepia(97%) saturate(7260%) hue-rotate(359deg) brightness(103%) contrast(114%);
+}
