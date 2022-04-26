@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="../styles/footer.css" />
   <link rel="stylesheet" href="../styles/login.css" />
   <link rel="stylesheet" href="../styles/sign-up.css" />
+  <!-- JS files -->
+  <script type="text/javascript" src="../js/contact.js"></script>
 
   <title>Trackgenix</title>
 </head>
@@ -225,16 +227,16 @@
     <section class="contact border-bottom-gray">
       <h3>Contact</h3>
       <form action="">
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <select id="contact-area" name="contact-area">
+        <input type="text" name="name" placeholder="Name" id="name" />
+        <input type="email" name="email" placeholder="Email" id="email" />
+        <select id="area" name="contact-area">
           <option value="contact-area" selected>Contact Area</option>
           <option value="rrhh">RR.HH.</option>
           <option value="it">I.T.</option>
           <option value="sales">Sales</option>
         </select>
-        <textarea placeholder="Enter your message" rows="10" cols="30"></textarea>
-        <button>Send message</button>
+        <textarea placeholder="Enter your message" rows="10" cols="30" id="text"></textarea>
+        <button id="btnSend">Send message</button>
         <button type="reset">Reset</button>
       </form>
     </section>
@@ -348,7 +350,6 @@
     <p>Copyright © 2022 Trackgenix SA. All rights reserved.</p>
   </footer>
 
-  <script type="text/javascript" src="../js/"></script>
 </body>
 
 </html>
