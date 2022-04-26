@@ -33,7 +33,7 @@ window.onload = () => {
       if (parseFloat(str.charAt(i))) {
         hasNumber = true;
       }
-      if (!parseFloat(str.charAt(i))) {
+      if (!parseFloat(str.charAt(i)) && str.charAt(i) != " ") {
         hasLetter = true;
       }
     }
