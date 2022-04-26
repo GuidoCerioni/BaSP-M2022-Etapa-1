@@ -18,8 +18,6 @@ window.onload = () => {
   // button
   let buttonSignUp = document.querySelector('#sign-up-button');
 
-
-
   // Add events listeners
   allInputs.forEach(input => {
     input.addEventListener("focus", removeError);
@@ -144,6 +142,8 @@ window.onload = () => {
   }
 
   function isAlphaNumeric(str) {
+    // copiada de internet xd
+
     var code, i, len;
 
     for (i = 0, len = str.length; i < len; i++) {
@@ -257,6 +257,7 @@ window.onload = () => {
   function validateEmail(e) {
     let email = e.currentTarget.value;
     if (!(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email))) {
+
       createError(e.currentTarget);
     } else {
       e.currentTarget.classList.add('valid');
@@ -264,7 +265,9 @@ window.onload = () => {
   }
 
   function validatePassword(e) {
-    if (e.currentTarget.value.length < 8 || !checkNumbersAndLetters(e.currentTarget.value)) {
+    if (e.currentTarget.value.length < 8 ||
+      !checkNumbersAndLetters(e.currentTarget.value)) {
+
       createError(e.currentTarget);
     }
     else {
@@ -274,16 +277,13 @@ window.onload = () => {
 
   function validateRPassword(e) {
     if (inputPassword.value != e.currentTarget.value) {
+
       createRPasswordError(e.currentTarget);
     }
     else {
       e.currentTarget.classList.add('valid');
     }
   }
-
-
-
-
 
 }
 
