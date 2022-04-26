@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../styles/reset.css" />
   <!-- Css styles -->
   <link rel="stylesheet" href="../styles/sign-up.css" />
+  <!-- JS files -->
+  <script type="text/javascript" src="../js/sign-up.js"></script>
 </head>
 
 <body class="sign-up">
@@ -30,7 +32,7 @@
           <input type="text" name="surname" id="surname" placeholder="Carola">
 
           <label for="id">ID</label>
-          <input type="text" name="id" id="id" placeholder="someone@gmail.com">
+          <input type="text" name="id" id="id" placeholder="11111111">
 
           <label for="phone">Phone Number</label>
           <input type="text" name="phone" id="phone" placeholder="3415678901">
@@ -39,7 +41,7 @@
           <input type="date" name="birth" id="birth">
 
           <label for="address">Address </label>
-          <input type="text" name="address" id="Italia 550" placeholder="someone@gmail.com">
+          <input type="text" name="address" id="address" placeholder="Italia 550">
         </div>
         <div class="container">
           <label for="city">City </label>
@@ -54,21 +56,17 @@
           <label for="password">Password</label>
           <input type="password" name="password" id="password" placeholder="Password">
 
-          <label>Repeat password</label>
-          <input type="password" name="password" id="password" placeholder="Password">
+          <label for="rPassword">Repeat password</label>
+          <input type="password" name="rPassword" id="rPassword" placeholder="Password">
         </div>
-        <div class="input-checkbox">
-          <input type="checkbox" id="remember-me" name="remember-me">
-          <label for="remember-me">Remember me</label>
-        </div>
-      </form>
-      <button id="button-login">Log in</button>
-      <a class="sign-up-button" href="sign-up.html">Sign up</a>
-      <p>Forgot your password?</p>
-      <a class="reset-it-button" href="#">Reset it</a>
 
+      </form>
+      <div class="buttons-container">
+        <button class="sign-up-button" id="sign-up-button">Sign up</button>
+        <p>Forgot your password?</p>
+        <a class="reset-it-button" href="#">Reset it</a>
+      </div>
     </section>
-    <script type="text/javascript" src="../js/login.js"></script>
 
 </body>
 

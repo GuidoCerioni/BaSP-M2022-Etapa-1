@@ -31,14 +31,12 @@
 .sign-up main {
   display: flex;
   justify-content: center;
+  padding: 0 20px;
 }
 
 .sign-up main section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
   width: 100%;
+  max-width: 1050px;
   border: 1px solid #000;
   border-radius: 70px;
   margin: 30px auto;
@@ -46,7 +44,8 @@
 }
 
 .sign-up main section h3 {
-  display: inline-block;
+  display: block;
+  text-align: center;
   font-size: 36px;
   margin-bottom: 40px;
   color: #000;
@@ -54,38 +53,30 @@
 
 .sign-up form {
   display: flex;
-  flex-direction: column;
-  flex-wrap:  wrap;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   width: 100%;
 }
 
-.sign-up .container{flex: 2 0 400px;
-display: flex;
-flex-flow: column wrap;}
-
-.sign-up div.input-icon {
-  position: relative;
-  width: 100%;
+.sign-up .container {
+  max-width: 500px;
+  display: flex;
+  flex-flow: column;
+  margin: 0 20px;
 }
 
-.sign-up form input[type="text"],
-.sign-up form input[type="password"] {
-  width: 350px;
+.sign-up form input {
+  width: 400px;
   height: 38px;
   margin-bottom: 10px;
   padding: 0 10px;
   background: transparent;
-  border:1px solid #000;
+  border: 1px solid #000;
   border-radius: 4px;
 }
-.sign-up form input[type="date"]{
-  width:60%;
-  margin:20px 0px;
-}
 
-.sign-up form label{
-  margin:20px 0px 8px 0px;
+.sign-up form label {
+  margin: 20px 0px 8px 0px;
 }
 
 .sign-up .input-checkbox {
@@ -93,8 +84,13 @@ flex-flow: column wrap;}
   color: #000;
 }
 
-.sign-up section button,
-.sign-up section .sign-up-button {
+.sign-up .buttons-container {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.sign-up button,
+.sign-up .sign-up-button {
   width: 100%;
   height: 40px;
   margin-bottom: 24px;
@@ -118,8 +114,15 @@ flex-flow: column wrap;}
 }
 
 /* Events clases */
-.sign-up form input[type="text"].error,
-.sign-up form input[type="password"].error {
-  border-bottom: 1px solid #ff0000;
+.sign-up form input.error {
+  border: 1px solid #ff0000;
 }
 
+.sign-up form input.valid {
+  border: 1px solid #00ff00;
+}
+
+.errorMessage {
+  color: #ff0000;
+  font-size: 12px;
+}
