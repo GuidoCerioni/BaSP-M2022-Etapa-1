@@ -21,6 +21,7 @@ window.onload = () => {
 
   // Functions
   function handleLogin(e) {
+    e.preventDefault();
     let email = inputEmail.value;
     let password = inputPassword.value;
     alert('email: ' + email + '\n' + 'password: ' + password);

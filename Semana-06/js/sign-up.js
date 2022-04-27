@@ -38,6 +38,7 @@ window.onload = () => {
 
   // Functions
   function handleSignUp(e) {
+    e.preventDefault();
     if (errors.length == 0) {
       alert('name: ' + inputName.value + '\n' + 'surname: ' + inputSurname.value + '\n' + 'id: ' + inputID.value + '\n' + 'phone: ' + inputPhone.value + '\n' + 'birth: ' + inputBirth.value + '\n' + 'address: ' + inputAddress.value + '\n' + 'city: ' + inputCity.value + '\n' + 'zipcode: ' + inputZipcode.value + '\n' + 'email: ' + inputEmail.value + '\n' + 'password: ' + inputPassword.value + '\n' + 'rPassword: ' + inputRPassword.value);
     } else {
@@ -49,6 +50,8 @@ window.onload = () => {
     let input = e.currentTarget;
     // remove error class
     input.classList.remove('error');
+    input.parentNode.classList.remove('error');
+
     // remove error message if exist
     let errorElement = input.parentElement.querySelector(`#error-${input.name}`);
     if (errorElement) {
@@ -77,6 +80,7 @@ window.onload = () => {
     error.setAttribute('id', `error-${input.name}`);
     error.innerHTML = `The ${input.name} is not valid`;
     input.parentNode.insertBefore(error, input.nextSibling);
+    input.parentNode.classList.add('error');
     // add error to array
     errors.push(`The ${input.name} is not valid`);
   }

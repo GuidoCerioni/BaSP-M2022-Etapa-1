@@ -22,7 +22,9 @@ window.onload = () => {
   inputText.addEventListener("blur", removeError);
 
   buttonSend.addEventListener("click", handleSend);
+
   function handleSend(e) {
+    e.preventDefault();
     if (errors.length == 0) {
       alert('name: ' + inputName.value + '\n' +
         'email: ' + inputEmail.value + '\n' +
@@ -46,6 +48,7 @@ window.onload = () => {
     error.setAttribute('id', `error-${input.name}`);
     error.innerHTML = `The ${input.name} is not valid`;
     input.parentNode.insertBefore(error, input.nextSibling);
+    input.parentNode.classList.add('error');
     // add error to array
     errors.push(`The ${input.name} is not valid`);
   }
@@ -54,6 +57,7 @@ window.onload = () => {
     let input = e.currentTarget;
     // remove error class
     input.classList.remove('error');
+    input.parentNode.classList.remove('error');
     // remove error message if exist
     let errorElement = input.parentElement.querySelector(`#error-${input.name}`);
     if (errorElement) {
@@ -128,13 +132,6 @@ window.onload = () => {
 
   function validateText(e) {
 
-    if (e.currentTarget.value.length < 3 ||
-      !isAlphaNumeric(e.currentTarget.value)) {
-
-      createError(e.currentTarget);
-    }
-    else {
-      e.currentTarget.classList.add('valid');
-    }
+    console.log('validate text')
   }
 }
