@@ -1,0 +1,98 @@
+/**/
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #373867;
+}
+
+h2 {
+  font-weight: bold;
+  color: #373867;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+  color: #373867;
+}
+
+h4 {
+  font-weight: normal;
+  color: #373867;
+}
+
+h5 {
+  font-weight: bold;
+  color: #373867;
+}
+
+p {
+  font-weight: normal;
+  color: #373867;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #373867;
+}
+
+.inline {
+  display: inline;
+}
+
+.green {
+  background-color: #aace9b;
+}
+
+.social-media-icons {
+  display: inline-block;
+}
+
+.social-media-icons,
+.social-media-icons a,
+.social-media-icons img {
+  height: 28px;
+  width: 28px;
+}
+
+.social-media-icons img.twitter-img {
+  height: 24px;
+}
+
+.social-media-icons.twitter-container a {
+  height: 24px;
+}
+
+li.twitter-container {
+  display: flex;
+  align-items: center;
+}
+
+.border-bottom-gray {
+  border-bottom: 2px solid #c4c4c4;
+}
+
+.border-bottom-green {
+  border-bottom: 6px solid #aace9b;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    margin: 15px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  body {
+    margin: 0 10px 0 300px;
+  }
+
+  aside.sidebar {
+    display: block;
+  }
+}

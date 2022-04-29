@@ -1,0 +1,101 @@
+window.onload = () => {
+  // inputs
+  let inputName = document.querySelector('#name');
+  let inputEmail = document.querySelector('#email');
+  let inputArea = document.querySelector('#area');
+  let inputText = document.querySelector('#text');
+  // button
+  let buttonSend = document.querySelector('#btnSend');
+
+
+  // Add events listeners
+  inputName.addEventListener("blur", validateName);
+  inputName.addEventListener("focus", removeError);
+
+  inputEmail.addEventListener("blur", validateEmail);
+  inputEmail.addEventListener("focus", removeError);
+
+  inputArea.addEventListener("focus", (e) => { });
+  inputArea.addEventListener("blur", removeError);
+
+  inputText.addEventListener("focus", validateText);
+  inputText.addEventListener("blur", removeError);
+
+  buttonSend.addEventListener("click", handleSend);
+
+  function handleSend(e) {
+    e.preventDefault();
+    if (errors.length == 0) {
+      alert('name: ' + inputName.value + '\n' +
+        'email: ' + inputEmail.value + '\n' +
+        'area: ' + inputArea.value + '\n' +
+        'text: ' + inputText.value + '\n');
+    } else {
+      alert('Errors: ' + errors);
+    }
+  }
+
+  let errors = [];//errors array
+
+  function createError(input) {
+    console.log('errors', errors);
+    // add error class
+    input.classList.add('error');
+    input.classList.remove('valid');
+    let error = document.createElement("p");
+    error.classList.add('errorMessage');
+    //add id to error message for eliminatng it later
+    error.setAttribute('id', `error-${input.name}`);
+    error.innerHTML = `The ${input.name} is not valid`;
+    input.parentNode.insertBefore(error, input.nextSibling);
+    input.parentNode.classList.add('error');
+    // add error to array
+    errors.push(`The ${input.name} is not valid`);
+  }
+
+  function removeError(e) {
+    let input = e.currentTarget;
+    // remove error class
+    input.classList.remove('error');
+    input.parentNode.classList.remove('error');
+    // remove error message if exist
+    let errorElement = input.parentElement.querySelector(`#error-${input.name}`);
+    if (errorElement) {
+      errorElement.remove();
+    }
+    // remove error from array
+    for (let i = 0; i < errors.length; i++) {
+      if (errors[i] == `The ${input.name} is not valid`) {
+        errors.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
+  //  validate inputs
+  function validateName(e) {
+
+    if (!validateLetters(e) ||
+      !validateLength3(e)) {
+
+      createError(e.currentTarget);
+    }
+    else {
+      e.currentTarget.classList.add('valid');
+    }
+  }
+
+  function validateEmail(e) {
+    let email = e.currentTarget.value;
+    if (!(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email))) {
+
+      createError(e.currentTarget);
+    } else {
+      e.currentTarget.classList.add('valid');
+    }
+  }
+
+  function validateText(e) {
+    console.log('validate text')
+  }
+}
