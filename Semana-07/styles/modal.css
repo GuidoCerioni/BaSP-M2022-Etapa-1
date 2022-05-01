@@ -1,0 +1,101 @@
+/* MODAL */
+/* The Modal (background faded) */
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Content/Box */
+.modal-content {
+  position: relative;
+  background-color: #fcfcfc;
+  padding: 0;
+  width: 68%;
+  max-width: 700px;
+  animation-name: animatetop;
+  animation-duration: 0.5s
+}
+
+.modal .modal-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  background-color: #232F3E;
+}
+
+.modal-header h2 {
+  color: #fcfcfc;
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+.modal .modal-text {
+  padding: 10px;
+}
+
+.modal .modal-text ul li {
+  font-size: 18px;
+  ;
+  letter-spacing: 0.02em;
+  margin: 18px 0;
+}
+
+
+
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    transform: scale(1.2);
+    opacity: 0
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1
+  }
+}
+
+/* The Close Button */
+.modal-header span {
+  position: absolute;
+  right: 20px;
+  top: 29%;
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+}
+
+.modal-header span:hover {
+  opacity: 1;
+}
+
+.modal-header span:before,
+.modal-header span:after {
+  position: absolute;
+  left: 10px;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+  background-color: #fff;
+}
+
+.modal-header span:before {
+  transform: rotate(45deg);
+}
+
+.modal-header span:after {
+  transform: rotate(-45deg);
+}

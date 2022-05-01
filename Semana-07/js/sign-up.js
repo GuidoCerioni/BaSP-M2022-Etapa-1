@@ -5,7 +5,7 @@ window.onload = () => {
   let inputSurname = document.querySelector('#surname');
   let inputID = document.querySelector('#id');
   let inputPhone = document.querySelector('#phone');
-  let inputBirth = document.querySelector('#birth');
+  let inputDOB = document.querySelector('#dob');
   let inputAddress = document.querySelector('#address');
   let inputCity = document.querySelector('#city');
   let inputZipcode = document.querySelector('#zipcode');
@@ -14,9 +14,14 @@ window.onload = () => {
   let inputRPassword = document.querySelector('#rPassword');
   // all inputs array
   let allInputs = document.querySelectorAll('input');
-
   // button
   let buttonSignUp = document.querySelector('#sign-up-button');
+  // modal
+  const modal = document.getElementById("myModal");
+  const modalClose = document.getElementById("modal-close");
+  const modalTitle = document.getElementById("modal-title");
+  const modalText = document.getElementById("modal-text");
+  const list = document.getElementById('modal-list');
 
   // Add events listeners
   allInputs.forEach(input => {
@@ -26,7 +31,7 @@ window.onload = () => {
   inputSurname.addEventListener("blur", validateName);
   inputID.addEventListener("blur", validateID);
   inputPhone.addEventListener("blur", validatePhone);
-  inputBirth.addEventListener("blur", validateBirth);
+  inputDOB.addEventListener("blur", validateBirth);
   inputAddress.addEventListener("blur", validateAddress);
   inputCity.addEventListener("blur", validateCity);
   inputZipcode.addEventListener("blur", validateZipcode);
@@ -37,13 +42,114 @@ window.onload = () => {
   buttonSignUp.addEventListener("click", handleSignUp);
 
   // Functions
-  function handleSignUp(e) {
-    e.preventDefault();
-    if (errors.length == 0) {
-      alert('name: ' + inputName.value + '\n' + 'surname: ' + inputSurname.value + '\n' + 'id: ' + inputID.value + '\n' + 'phone: ' + inputPhone.value + '\n' + 'birth: ' + inputBirth.value + '\n' + 'address: ' + inputAddress.value + '\n' + 'city: ' + inputCity.value + '\n' + 'zipcode: ' + inputZipcode.value + '\n' + 'email: ' + inputEmail.value + '\n' + 'password: ' + inputPassword.value + '\n' + 'rPassword: ' + inputRPassword.value);
-    } else {
-      alert('Errors: ' + errors);
+  // Modal Functions
+  // shows modal with error messages or success message
+  function showModal(title, data, success) {
+    modalTitle.innerHTML = title;
+    modalText.innerHTML = "";
+    if (success !== null) {
+      if (success) {
+        modal.classList.add("success");
+        modalText.innerHTML = data.msg;
+        for (const [key, value] of Object.entries(data.data)) {
+          list.innerHTML += `<li>${key}: ${value}</li>`;
+        };
+
+      } else {
+        modal.classList.add("no-success");
+        if (data.errors) {
+          list.innerHTML = data.errors.map(error => `<li>${error.msg}</li>`).join('');
+        } else if (data.msg) {
+          list.innerHTML = `<li>${data.msg}</li>`;
+        } else {
+          list.innerHTML = `<li>Server connection error, check fetch url</li>`;
+        }
+      }
     }
+    modal.style.display = "flex";
+  }
+  // close modal style changes
+  function closeModal() {
+    modalTitle.innerHTML = "";
+    modalText.innerHTML = "";
+    modal.classList.remove("success");
+    modal.classList.remove("no-success");
+    modal.style.display = "none";
+  }
+
+  // Modal close button event
+  modalClose.onclick = function () {
+    closeModal();
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+  // -- Modal Functions
+
+  // Sign up logic
+  async function handleSignUp(e) {
+    e.preventDefault();
+
+    const url = 'https://basp-m2022-api-rest-server.herokuapp.com/signup?';
+    // create data object same as API response
+    let data = {
+      errors: [{ msg: '' }, { msg: '' }],
+      msg: ""
+    };
+
+    if (errors.length === 0) {
+      data = await (
+        fetchSignup(
+          url,
+          inputName.value,
+          inputSurname.value,
+          inputID.value,
+          inputPhone.value,
+          inputDOB.value,
+          inputAddress.value,
+          inputCity.value,
+          inputZipcode.value,
+          inputEmail.value,
+          inputPassword.value,
+          inputRPassword.value)
+      );
+      console.log('data', data)
+      if (data.success) {
+        showModal("Signed Up", data, true);
+      } else {
+        showModal('Error', data, false);
+      }
+    } else {
+      errors.forEach((error, i) => { data.errors[i].msg = error; });
+      showModal('Error', data, false);
+    }
+  }
+  async function fetchSignup(url, name, surname, id, phone, dob, address, city, zipcode, email, password) {
+
+    // create data object
+    let data = {
+      name: name,
+      lastName: surname,
+      dni: id,
+      // format date 
+      dob: formatDate(dob),
+      phone: phone,
+      address: address,
+      city: city,
+      zip: zipcode,
+      email: email,
+      password: password,
+    };
+    // create url params
+    let queryParams = new URLSearchParams(data);
+
+    return await fetch(`${url}${queryParams}`)
+      .then(res => res.json())
+      .then(json => { console.log('json', json); return json })
+      .catch(err => err);
   }
 
   function removeError(e) {
@@ -65,6 +171,13 @@ window.onload = () => {
       }
     }
   }
+
+  function formatDate(date) {
+    // formats date "aaaa-mm-dd" to "mm/dd/yyyy"
+    let dateArray = date.split('-');
+    return dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0];
+  }
+
 
   // dinamic error message creation
   let errors = [];//errors array
@@ -97,7 +210,7 @@ window.onload = () => {
     input.parentNode.insertBefore(error, input.nextSibling);
   }
 
-  
+
   // validate inputs
   function validateName(e) {
 
