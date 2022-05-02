@@ -28,6 +28,11 @@ git clone https://github.com/GuidoCerioni/BaSP-M2022-Etapa-1
 
 ## Change Log
 
+### Semana 07
+
+Add API fetch functions and error handle
+[Check it out](https://guidocerioni.github.io/BaSP-M2022-Etapa-1/Semana-07/views/index.html)
+
 ### Semana 06
 
 Add Javascript to the Week-04 app. Add login and signup functionality.
