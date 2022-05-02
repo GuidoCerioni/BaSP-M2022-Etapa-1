@@ -39,18 +39,20 @@ window.onload = () => {
     if (success !== null) {
       if (success) {
         modal.classList.add("success");
-        list.innerHTML = `<li>${data.msg}</li>`;
+        list.innerHTML = `<div>${data.msg}</div>`;
       } else {
         modal.classList.add("no-success");
         if (data.errors) {
-          list.innerHTML = data.errors.map(error => `<li>${error.msg}</li>`).join('');
+          modalText.innerHTML = data.errors.map(error => `<div>- ${error.msg}</div>`).join('');
         } else if (data.msg) {
-          list.innerHTML = `<li>${data.msg}</li>`;
+          modalText.innerHTML = `<div>${data.msg}</div>`;
         } else {
-          list.innerHTML = `<li>Server connection error, check fetch url</li>`;
+          modalText.innerHTML = `<div>Server connection error, check fetch url</d>`;
         }
       }
-    }
+    } else (
+      console.log("Error in showModal(): success is required")
+    )
     modal.style.display = "flex";
   }
   // close modal style changes

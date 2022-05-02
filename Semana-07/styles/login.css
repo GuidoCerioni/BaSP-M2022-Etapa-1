@@ -18,7 +18,7 @@
 
 .login header div span,
 .login header div a {
-  font-size: 10px;
+  font-size: 16px;
   display: block;
   margin: 2px 0;
 }
@@ -33,6 +33,7 @@
 .login main {
   display: flex;
   justify-content: center;
+  padding: 0 20px;
 }
 
 .login main section {
@@ -125,4 +126,3 @@
 .login form img.error {
   filter: invert(17%) sepia(97%) saturate(7260%) hue-rotate(359deg) brightness(103%) contrast(114%);
 }
-

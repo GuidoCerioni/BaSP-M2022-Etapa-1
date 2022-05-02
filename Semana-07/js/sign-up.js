@@ -42,7 +42,28 @@ window.onload = () => {
   buttonSignUp.addEventListener("click", handleSignUp);
 
   // Functions
-  // Modal Functions
+
+  // Local storage
+  function saveUserToLocalStorage(userData) {
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
+  function deleteUserLocalStorage() {
+    localStorage.removeItem('userData');
+  }
+  function getUserFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('userData'));
+  }
+  // -- Local storage
+
+  // Helpers
+  function formatDate(date) {
+    // formats date "aaaa-mm-dd" to "mm/dd/yyyy"
+    let dateArray = date.split('-');
+    return dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0];
+  }
+  // -- Helpers
+
+  // Modal Functions  
   // shows modal with error messages or success message
   function showModal(title, data, success) {
     modalTitle.innerHTML = title;
@@ -52,20 +73,22 @@ window.onload = () => {
         modal.classList.add("success");
         modalText.innerHTML = data.msg;
         for (const [key, value] of Object.entries(data.data)) {
-          list.innerHTML += `<li>${key}: ${value}</li>`;
+          modalText.innerHTML += `<div>${key}: ${value}</div>`;
         };
-
       } else {
         modal.classList.add("no-success");
         if (data.errors) {
-          list.innerHTML = data.errors.map(error => `<li>${error.msg}</li>`).join('');
+          modalText.innerHTML = data.errors.map(error => `<div>- ${error.msg}</div>`).join('');
         } else if (data.msg) {
-          list.innerHTML = `<li>${data.msg}</li>`;
+          modalText.innerHTML = `<div>${data.msg}</div>`;
         } else {
-          list.innerHTML = `<li>Server connection error, check fetch url</li>`;
+          modalText.innerHTML = `<div>Server connection error, check fetch url</div>`;
         }
       }
     }
+    else (
+      console.log("Error in showModal(): success is required")
+    )
     modal.style.display = "flex";
   }
   // close modal style changes
@@ -76,7 +99,6 @@ window.onload = () => {
     modal.classList.remove("no-success");
     modal.style.display = "none";
   }
-
   // Modal close button event
   modalClose.onclick = function () {
     closeModal();
@@ -101,6 +123,7 @@ window.onload = () => {
     };
 
     if (errors.length === 0) {
+      // if no errors, fetch API
       data = await (
         fetchSignup(
           url,
@@ -116,7 +139,6 @@ window.onload = () => {
           inputPassword.value,
           inputRPassword.value)
       );
-      console.log('data', data)
       if (data.success) {
         showModal("Signed Up", data, true);
       } else {
@@ -128,13 +150,12 @@ window.onload = () => {
     }
   }
   async function fetchSignup(url, name, surname, id, phone, dob, address, city, zipcode, email, password) {
-
     // create data object
-    let data = {
+    const data = {
       name: name,
       lastName: surname,
       dni: id,
-      // format date 
+      // format date
       dob: formatDate(dob),
       phone: phone,
       address: address,
@@ -147,11 +168,18 @@ window.onload = () => {
     let queryParams = new URLSearchParams(data);
 
     return await fetch(`${url}${queryParams}`)
-      .then(res => res.json())
-      .then(json => { console.log('json', json); return json })
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        return res;
+      })
       .catch(err => err);
   }
+  // -- Sign up logic
 
+  // Error handling
+  let errors = []; // errors array
   function removeError(e) {
     let input = e.currentTarget;
     // remove error class
@@ -171,17 +199,7 @@ window.onload = () => {
       }
     }
   }
-
-  function formatDate(date) {
-    // formats date "aaaa-mm-dd" to "mm/dd/yyyy"
-    let dateArray = date.split('-');
-    return dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0];
-  }
-
-
   // dinamic error message creation
-  let errors = [];//errors array
-
   function createError(input) {
     console.log('errors', errors)
     // add error class
@@ -197,7 +215,6 @@ window.onload = () => {
     // add error to array
     errors.push(`The ${input.name} is not valid`);
   }
-
   function createRPasswordError(input) {
     // add error class
     input.classList.add('error');
@@ -209,7 +226,7 @@ window.onload = () => {
     error.innerHTML = `The passwords dont match`;
     input.parentNode.insertBefore(error, input.nextSibling);
   }
-
+  // -- Error handling
 
   // validate inputs
   function validateName(e) {
@@ -223,10 +240,10 @@ window.onload = () => {
       e.currentTarget.classList.add('valid');
     }
   }
-
   function validateID(e) {
 
     if (e.currentTarget.value.length < 7 ||
+      e.currentTarget.value.length > 8 ||
       !validateNumbers(e)) {
 
       createError(e.currentTarget);
@@ -235,7 +252,6 @@ window.onload = () => {
       e.currentTarget.classList.add('valid');
     }
   }
-
   function validatePhone(e) {
 
     if (!(e.currentTarget.value.length == 10) ||
@@ -247,7 +263,6 @@ window.onload = () => {
       e.currentTarget.classList.add('valid');
     }
   }
-
   function validateBirth(e) {
 
     if (e.currentTarget.valueAsNumber > (new Date().getTime())) {
@@ -258,7 +273,6 @@ window.onload = () => {
       e.currentTarget.classList.add('valid');
     }
   }
-
   function validateAddress(e) {
 
     let input = e.currentTarget;
@@ -283,7 +297,6 @@ window.onload = () => {
       input.classList.add('valid');
     }
   }
-
   function validateCity(e) {
 
     if (e.currentTarget.value.length < 3 ||
@@ -295,7 +308,6 @@ window.onload = () => {
       e.currentTarget.classList.add('valid');
     }
   }
-
   function validateZipcode(e) {
     if (e.currentTarget.value.length < 4 ||
       e.currentTarget.value.length > 5 ||
@@ -307,7 +319,6 @@ window.onload = () => {
       e.currentTarget.classList.add('valid');
     }
   }
-
   function validateEmail(e) {
     let email = e.currentTarget.value;
     if (!(/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email))) {
@@ -317,7 +328,6 @@ window.onload = () => {
       e.currentTarget.classList.add('valid');
     }
   }
-
   function validatePassword(e) {
     if (e.currentTarget.value.length < 8 ||
       !checkNumbersAndLetters(e.currentTarget.value)) {
@@ -328,7 +338,6 @@ window.onload = () => {
       e.currentTarget.classList.add('valid');
     }
   }
-
   function validateRPassword(e) {
     if (inputPassword.value != e.currentTarget.value) {
 
