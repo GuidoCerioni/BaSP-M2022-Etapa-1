@@ -52,12 +52,14 @@ window.onload = () => {
     };
 
     if (errors.length === 0) {
-      data = await (fetchLogin(url, email, password));
-      if (data.success) {
-        showModal("Logged in!", data, true);
-      } else {
-        showModal('Error', data, false);
-      }
+      data = fetchLogin(url, email, password)
+        .then(data => {
+          if (data.success) {
+            showModal("Logged in!", data, true);
+          } else {
+            showModal('Error', data, false);
+          }
+        })
     } else {
       errors.forEach((error, i) => { data.errors[i].msg = error; });
       showModal('Error', data, false);
