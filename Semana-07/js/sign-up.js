@@ -63,16 +63,18 @@ window.onload = () => {
   }
   function serFormFromLocalStorage() {
     const userData = JSON.parse(localStorage.getItem('userData'));
-    userData.name ? inputName.value = userData.name : inputName.value = '';
-    userData.lastName ? inputSurname.value = userData.lastName : inputSurname.value = '';
-    userData.dni ? inputID.value = userData.dni : inputID.value = '';
-    userData.phone ? inputPhone.value = userData.phone : inputPhone.value = '';
-    userData.dob ? inputDOB.value = formatDateFromApi(userData.dob) : inputDOB.value = '';
-    userData.address ? inputAddress.value = userData.address : inputAddress.value = '';
-    userData.city ? inputCity.value = userData.city : inputCity.value = '';
-    userData.zip ? inputZipcode.value = userData.zip : inputZipcode.value = '';
-    userData.email ? inputEmail.value = userData.email : inputEmail.value = '';
-    userData.password ? inputPassword.value = userData.password : inputPassword.value = '';
+    if (userData) {
+      userData.name ? inputName.value = userData.name : inputName.value = '';
+      userData.lastName ? inputSurname.value = userData.lastName : inputSurname.value = '';
+      userData.dni ? inputID.value = userData.dni : inputID.value = '';
+      userData.phone ? inputPhone.value = userData.phone : inputPhone.value = '';
+      userData.dob ? inputDOB.value = formatDateFromApi(userData.dob) : inputDOB.value = '';
+      userData.address ? inputAddress.value = userData.address : inputAddress.value = '';
+      userData.city ? inputCity.value = userData.city : inputCity.value = '';
+      userData.zip ? inputZipcode.value = userData.zip : inputZipcode.value = '';
+      userData.email ? inputEmail.value = userData.email : inputEmail.value = '';
+      userData.password ? inputPassword.value = userData.password : inputPassword.value = '';
+    }
   }
   serFormFromLocalStorage();
   // -- Local storage

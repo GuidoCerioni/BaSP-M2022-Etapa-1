@@ -8,6 +8,8 @@ function showModal(title, data, success) {
 
   modalTitle.innerHTML = title;
 
+
+  //TODO: keep data logic out of this file 
   if (success !== null) {
     if (success) {
       modal.classList.add("success");
