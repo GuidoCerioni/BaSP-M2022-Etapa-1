@@ -1,3 +1,17 @@
+
+// Helpers
+function formatDateToApi(date) {
+  // formats date "aaaa-mm-dd" to "mm/dd/yyyy"
+  let dateArray = date.split('-');
+  return dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0];
+}
+function formatDateFromApi(date) {
+  // formats date "mm/dd/yyyy"" to "aaaa-mm-dd 
+  let dateArray = date.split('/');
+  return dateArray[2] + '-' + dateArray[0] + '-' + dateArray[1];
+}
+// -- Helpers
+
 window.onload = () => {
   // Select elements
   // inputs
@@ -19,9 +33,6 @@ window.onload = () => {
   // modal
   const modal = document.getElementById("myModal");
   const modalClose = document.getElementById("modal-close");
-  const modalTitle = document.getElementById("modal-title");
-  const modalText = document.getElementById("modal-text");
-  const list = document.getElementById('modal-list');
 
   // Add events listeners
   allInputs.forEach(input => {
@@ -50,55 +61,24 @@ window.onload = () => {
   function deleteUserLocalStorage() {
     localStorage.removeItem('userData');
   }
-  function getUserFromLocalStorage() {
-    return JSON.parse(localStorage.getItem('userData'));
+  function serFormFromLocalStorage() {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    userData.name ? inputName.value = userData.name : inputName.value = '';
+    userData.lastName ? inputSurname.value = userData.lastName : inputSurname.value = '';
+    userData.dni ? inputID.value = userData.dni : inputID.value = '';
+    userData.phone ? inputPhone.value = userData.phone : inputPhone.value = '';
+    userData.dob ? inputDOB.value = formatDateFromApi(userData.dob) : inputDOB.value = '';
+    userData.address ? inputAddress.value = userData.address : inputAddress.value = '';
+    userData.city ? inputCity.value = userData.city : inputCity.value = '';
+    userData.zip ? inputZipcode.value = userData.zip : inputZipcode.value = '';
+    userData.email ? inputEmail.value = userData.email : inputEmail.value = '';
+    userData.password ? inputPassword.value = userData.password : inputPassword.value = '';
   }
+  serFormFromLocalStorage();
   // -- Local storage
 
-  // Helpers
-  function formatDate(date) {
-    // formats date "aaaa-mm-dd" to "mm/dd/yyyy"
-    let dateArray = date.split('-');
-    return dateArray[1] + '/' + dateArray[2] + '/' + dateArray[0];
-  }
-  // -- Helpers
 
-  // Modal Functions  
-  // shows modal with error messages or success message
-  function showModal(title, data, success) {
-    modalTitle.innerHTML = title;
-    modalText.innerHTML = "";
-    if (success !== null) {
-      if (success) {
-        modal.classList.add("success");
-        modalText.innerHTML = data.msg;
-        for (const [key, value] of Object.entries(data.data)) {
-          modalText.innerHTML += `<div>${key}: ${value}</div>`;
-        };
-      } else {
-        modal.classList.add("no-success");
-        if (data.errors) {
-          modalText.innerHTML = data.errors.map(error => `<div>- ${error.msg}</div>`).join('');
-        } else if (data.msg) {
-          modalText.innerHTML = `<div>${data.msg}</div>`;
-        } else {
-          modalText.innerHTML = `<div>Server connection error, check fetch url</div>`;
-        }
-      }
-    }
-    else (
-      console.log("Error in showModal(): success is required")
-    )
-    modal.style.display = "flex";
-  }
-  // close modal style changes
-  function closeModal() {
-    modalTitle.innerHTML = "";
-    modalText.innerHTML = "";
-    modal.classList.remove("success");
-    modal.classList.remove("no-success");
-    modal.style.display = "none";
-  }
+  // Modal Functions events
   // Modal close button event
   modalClose.onclick = function () {
     closeModal();
@@ -121,34 +101,35 @@ window.onload = () => {
       errors: [{ msg: '' }, { msg: '' }],
       msg: ""
     };
-
     if (errors.length === 0) {
       // if no errors, fetch API
-      data = await (
-        fetchSignup(
-          url,
-          inputName.value,
-          inputSurname.value,
-          inputID.value,
-          inputPhone.value,
-          inputDOB.value,
-          inputAddress.value,
-          inputCity.value,
-          inputZipcode.value,
-          inputEmail.value,
-          inputPassword.value,
-          inputRPassword.value)
-      );
-      if (data.success) {
-        showModal("Signed Up", data, true);
-      } else {
-        showModal('Error', data, false);
-      }
+      data = fetchSignup(
+        url,
+        inputName.value,
+        inputSurname.value,
+        inputID.value,
+        inputPhone.value,
+        inputDOB.value,
+        inputAddress.value,
+        inputCity.value,
+        inputZipcode.value,
+        inputEmail.value,
+        inputPassword.value,
+        inputRPassword.value)
+        .then(data => {
+          if (data.success) {
+            showModal("Signed Up", data, true);
+            saveUserToLocalStorage(data.data)
+          } else {
+            showModal('Error', data, false)
+          }
+        })
     } else {
       errors.forEach((error, i) => { data.errors[i].msg = error; });
       showModal('Error', data, false);
     }
   }
+
   async function fetchSignup(url, name, surname, id, phone, dob, address, city, zipcode, email, password) {
     // create data object
     const data = {
@@ -156,7 +137,7 @@ window.onload = () => {
       lastName: surname,
       dni: id,
       // format date
-      dob: formatDate(dob),
+      dob: formatDateToApi(dob),
       phone: phone,
       address: address,
       city: city,
@@ -167,7 +148,8 @@ window.onload = () => {
     // create url params
     let queryParams = new URLSearchParams(data);
 
-    return await fetch(`${url}${queryParams}`)
+    // returns promise
+    return fetch(`${url}${queryParams}`)
       .then(res => {
         return res.json();
       })
@@ -193,7 +175,7 @@ window.onload = () => {
     }
     // remove error from array
     for (let i = 0; i < errors.length; i++) {
-      if (errors[i] == `The ${input.name} is not valid`) {
+      if (errors[i] == `The ${input.name} is not valid` || errors[i] == `The passwords dont match`) {
         errors.splice(i, 1);
         i--;
       }
@@ -201,7 +183,6 @@ window.onload = () => {
   }
   // dinamic error message creation
   function createError(input) {
-    console.log('errors', errors)
     // add error class
     input.classList.add('error');
     input.classList.remove('valid');
@@ -225,10 +206,14 @@ window.onload = () => {
     error.setAttribute('id', `error-${input.name}`);
     error.innerHTML = `The passwords dont match`;
     input.parentNode.insertBefore(error, input.nextSibling);
+    // add error to array
+    errors.push(`The passwords dont match`);
   }
   // -- Error handling
 
   // validate inputs
+  //TODO: dont pass e to functions, reestructure to use e.currenTarget.value
+
   function validateName(e) {
 
     if (!validateLetters(e) ||
@@ -279,10 +264,8 @@ window.onload = () => {
     let hasSpace = false;
 
     for (let i = 0; i < input.value.length; i++) {
-
       // validate if there is a space and not first or last character
-      if (i != 0 && i != input.value.length && input.value.charAt(i) == " ") {
-
+      if (i !== 0 && i != input.value.length && input.value.charAt(i) == " ") {
         hasSpace = true;
       }
     }

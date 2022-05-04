@@ -1,6 +1,6 @@
 /* MODAL */
-/* The Modal (background faded) */
 
+/* Modal background faded */
 .modal {
   display: none;
   justify-content: center;
@@ -26,12 +26,10 @@
   animation-name: animatetop;
   animation-duration: 0.5s;
   overflow: hidden;
-
 }
 
 /* Modal header */
 .modal .modal-header {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,11 +85,12 @@
   position: absolute;
   width: 100%;
   height: calc(100% - 50px);
-  padding: 0px 10px;
-  overflow-y: scroll
+  padding: 0px 10px 10px 10px;
+  overflow-y: auto
 }
 
-.modal .modal-text div {
+.modal .modal-text div,
+.modal .modal-text p {
   font-size: 18px;
   letter-spacing: 0.02rem;
   line-height: 1.5rem;

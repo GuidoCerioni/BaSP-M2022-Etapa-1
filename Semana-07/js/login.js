@@ -11,11 +11,6 @@ window.onload = () => {
   // modal
   const modal = document.getElementById("myModal");
   const modalClose = document.getElementById("modal-close");
-  const modalTitle = document.getElementById("modal-title");
-  const modalText = document.getElementById("modal-text");
-  const list = document.getElementById('modal-list');
-
-
 
   // Add events listeners
   inputPassword.addEventListener("blur", (e) => {
@@ -32,38 +27,6 @@ window.onload = () => {
 
 
   // Modal Functions
-  // shows modal with error messages or success message
-  function showModal(title, data, success) {
-    modalTitle.innerHTML = title;
-    modalText.innerHTML = "";
-    if (success !== null) {
-      if (success) {
-        modal.classList.add("success");
-        list.innerHTML = `<div>${data.msg}</div>`;
-      } else {
-        modal.classList.add("no-success");
-        if (data.errors) {
-          modalText.innerHTML = data.errors.map(error => `<div>- ${error.msg}</div>`).join('');
-        } else if (data.msg) {
-          modalText.innerHTML = `<div>${data.msg}</div>`;
-        } else {
-          modalText.innerHTML = `<div>Server connection error, check fetch url</d>`;
-        }
-      }
-    } else (
-      console.log("Error in showModal(): success is required")
-    )
-    modal.style.display = "flex";
-  }
-  // close modal style changes
-  function closeModal() {
-    modalTitle.innerHTML = "";
-    modalText.innerHTML = "";
-    modal.classList.remove("success");
-    modal.classList.remove("no-success");
-    modal.style.display = "none";
-  }
-
   // Modal close button event
   modalClose.onclick = function () {
     closeModal();
@@ -75,7 +38,6 @@ window.onload = () => {
     }
   }
   // -- Modal Functions
-
 
   // Login logic
   async function handleLogin(e) {
